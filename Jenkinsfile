@@ -12,6 +12,11 @@ pipeline {
                 sh 'ls -al'
             }
         }
+        stage('terraform plan') {
+            steps {
+                sh "terraform plan"
+            }
+        }
         stage('Test') {
             steps {
                 echo 'Testing..'
