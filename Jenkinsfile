@@ -4,15 +4,17 @@ pipeline {
     agent { label 'glowne' }
     parameters {
         choice(
-            choices: ['greeting' , 'silence'],
+            choices: ['create' , 'destroy'],
             description: '',
-            name: 'REQUESTED_ACTION')
+            name: 'CACTION')
     }
     environment {
+        // zmienne glowne dla wszystkich stages
         zmienna2 = 'jakas zmienna'
     }
     stages {
         stage('materials') {
+            // zmienne tylko dla danego stage
             environment {
                zmienna3 = 'jasdfasdf'
             } 
@@ -23,17 +25,21 @@ pipeline {
                 sh 'ls -al'
             }
         }
-        stage('test if') {
+        stage('terraform plan destroy') {
             when {
-               expression { params.REQUESTED_ACTION == 'greeting' }
+                expression { params.CACTION ==~ /{destroy|remove}/ }
             }
             steps {
-               sh 'echo no to jestem'
+                sh "terraform plan --destroy"
             }
         }
         stage('terraform plan') {
+            when {
+               expression { params.CACTION == 'create' }
+            }
             steps {
-                sh "terraform init"
+                // move it to separate stage with when statement
+                // sh "terraform init"
                 sh "terraform plan"
             }
         }
