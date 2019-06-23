@@ -25,7 +25,7 @@ pipeline {
         }
         stage('terraform apply') {
             steps {
-                sh "terraform apply"
+                sh "terraform apply --auto-approve"
                 // to pokazuje outputs ktore i tak sa automatycznie pokazywane
                 // sh "terraform output"
             }
