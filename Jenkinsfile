@@ -13,6 +13,9 @@ pipeline {
     }
     stages {
         stage('materials') {
+            environment {
+               zmienna3 = 'jasdfasdf'
+            } 
             steps {
                 sh '/bin/ciag-tf-klucze'
                 echo 'sciaganie repos'
