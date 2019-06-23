@@ -18,6 +18,9 @@ pipeline {
                 sh "terraform plan"
             }
         }
+        stage('Deploy approval') {
+            input "Deploy to prod?"
+        }
         stage('terraform apply') {
             steps {
                 sh "terraform apply"
