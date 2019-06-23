@@ -6,11 +6,10 @@ pipeline {
     stages {
         stage('materials') {
             steps {
-                echo 'sciaganie repos'
-                sh 'ls -al'
-                sh 'whoami'
-                sh 'ls -al /'
                 sh '/bin/ciag-tf-klucze'
+                echo 'sciaganie repos'
+                sh 'mv aws-tf-my4 00-aws-tf-my4.tf'
+                sh 'ls -al'
             }
         }
         stage('Test') {
