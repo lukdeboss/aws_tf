@@ -7,8 +7,8 @@ pipeline {
         stage('materials') {
             steps {
                 echo 'sciaganie repos'
-                sh "scp -p 57185 $Serwer1:/l/ssh_unifikacja/aws-tf-my4 ."
                 sh 'ls -al'
+                sh "scp -p 57185 $Serwer1:/l/ssh_unifikacja/aws-tf-my4 ."
                 sh 'whoami'
             }
         }
