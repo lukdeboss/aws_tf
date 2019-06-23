@@ -18,11 +18,9 @@ pipeline {
                 sh "terraform plan"
             }
         }
-        stage('Test') {
+        stage('terraform apply') {
             steps {
-                echo 'Testing..'
-                echo "zakladam ze to jest tutaj"
-                sh 'ls -al '
+                sh "terraform apply"
             }
         }
     }
