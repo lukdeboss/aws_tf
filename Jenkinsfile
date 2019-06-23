@@ -13,15 +13,6 @@ pipeline {
         zmienna2 = 'jakas zmienna'
     }
     stages {
-        stage('trst') {
-            when {
-                // case insensitive regular expression for truthy values
-                expression { return token ==~ /(?i)(Y|YES|T|TRUE|ON|RUN)/ }
-            }
-            steps {
-                sh "echo cooooooooo"
-            }
-        }
         stage('materials') {
             // zmienne tylko dla danego stage
             environment {
