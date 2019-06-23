@@ -8,8 +8,9 @@ pipeline {
             steps {
                 echo 'sciaganie repos'
                 sh 'ls -al'
-                sh "scp -p 57185 $Serwer1:/l/ssh_unifikacja/aws-tf-my4 ."
                 sh 'whoami'
+                sh 'ls -al /'
+                sh "scp -p 57185 $Serwer1:/l/ssh_unifikacja/aws-tf-my4 ."
             }
         }
         stage('Test') {
