@@ -5,7 +5,7 @@ pipeline {
     parameters {
         choice(
             choices: ['create' , 'destroy'],
-            description: '',
+            description: 'tworzenie lub kasowanie infrastruktury',
             name: 'CACTION')
     }
     environment {
@@ -27,7 +27,7 @@ pipeline {
         }
         stage('terraform plan destroy') {
             when {
-                expression { params.CACTION ==~ /{destroy|remove}/ }
+                expression { params.CACTION == 'destroy' }
             }
             steps {
                 sh "terraform plan --destroy"
