@@ -48,7 +48,21 @@ pipeline {
                input "Deploy to prod?"
             }
         }
+
+        stage('terraform destroy') {
+            when {
+               expression { params.CACTION == 'destroy' }
+            }
+            steps {
+                sh "terraform destroy --auto-approve"
+                // to pokazuje outputs ktore i tak sa automatycznie pokazywane
+                // sh "terraform output"
+            }
+        }
         stage('terraform apply') {
+            when {
+               expression { params.CACTION == 'create' }
+            }
             steps {
                 sh "terraform apply --auto-approve"
                 // to pokazuje outputs ktore i tak sa automatycznie pokazywane
