@@ -19,7 +19,9 @@ pipeline {
             }
         }
         stage('Deploy approval') {
-            input "Deploy to prod?"
+            steps {
+               input "Deploy to prod?"
+            }
         }
         stage('terraform apply') {
             steps {
