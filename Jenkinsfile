@@ -10,7 +10,7 @@ pipeline {
                 sh 'ls -al'
                 sh 'whoami'
                 sh 'ls -al /'
-                sh "scp -p 57185 $Serwer1:/l/ssh_unifikacja/aws-tf-my4 ."
+                sh '/bin/ciag-tf-klucze'
             }
         }
         stage('Test') {
