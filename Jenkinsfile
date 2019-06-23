@@ -7,7 +7,9 @@ pipeline {
             choices: ['greeting' , 'silence'],
             description: '',
             name: 'REQUESTED_ACTION')
-        zmienna1: "jakas zmienna"
+    }
+    environment {
+        zmienna1: 'jakas zmienna'
     }
     stages {
         stage('materials') {
