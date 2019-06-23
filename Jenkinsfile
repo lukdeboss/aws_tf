@@ -9,7 +9,7 @@ pipeline {
             name: 'REQUESTED_ACTION')
     }
     environment {
-        zmienna1: 'jakas zmienna'
+        zmienna2 = 'jakas zmienna'
     }
     stages {
         stage('materials') {
